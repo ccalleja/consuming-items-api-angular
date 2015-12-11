@@ -5,8 +5,8 @@ angular.module('myApp.view1', ['ngRoute', 'angular.third.party.module'])
   .config(['$routeProvider', 'angThirdPartyProvider', function ($routeProvider, angThirdPartyProvider) {
     angThirdPartyProvider.changeTimeout(0);
 
-    $routeProvider.when('/view1', {
-      templateUrl: 'view1/view1.html',
+    $routeProvider.when('/stock-items', {
+      templateUrl: 'stock-items-view/stock-items-view.html',
       controller: 'View1Ctrl'
     });
 

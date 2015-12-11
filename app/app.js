@@ -5,15 +5,9 @@ var app = angular.module('myApp', [
   'ngRoute',
   'myApp.view1',
   'myApp.view2',
-  'myApp.version'/*,
-  'angular.third.party.module'*/
+  'myApp.version'
 ]);
 
 app.config(['$routeProvider', function ($routeProvider) {
-  $routeProvider.otherwise({redirectTo: '/view1'});
+  $routeProvider.otherwise({redirectTo: '/stock-items'});
 }]);
-
-/*
-app.config(['angThirdPartyProvider', function (angThirdPartyProvider) {
-  angThirdPartyProvider.changeTimeout(250);
-}]);*/
