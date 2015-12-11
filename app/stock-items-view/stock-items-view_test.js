@@ -1,15 +1,15 @@
 'use strict';
 
-describe('myApp.view1 module', function() {
+describe('stock.stockItems module', function() {
 
-  beforeEach(module('myApp.view1'));
+  beforeEach(module('stock.stockItems'));
 
-  describe('view1 controller', function(){
+  describe('stockItems controller', function(){
 
     it('should ....', inject(function($controller) {
       //spec body
-      var view1Ctrl = $controller('View1Ctrl');
-      expect(view1Ctrl).toBeDefined();
+      var stockItemsCtrl = $controller('StockItemsCtrl');
+      expect(stockItemsCtrl).toBeDefined();
     }));
 
   });

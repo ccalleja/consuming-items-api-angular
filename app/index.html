@@ -12,23 +12,21 @@
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
   <link rel="stylesheet" href="app.css">
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet"
+        href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
   <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
-<!--<body>-->
-<body ng-controller="Controller">
-  <ul class="menu">
-    <li><a href="#/stock-items">Stock Items</a></li>
-    <li><a href="#/view2">view2</a></li>
-  </ul>
-
+<body>
   <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
 
   <!-- PARTIAL VIEWS COME HERE-->
   <div ng-view></div>
-
-  <div>Angular seed app: v<span app-version></span></div>
 
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
@@ -43,4 +41,7 @@
 
   <script src="http://dmifsud.github.io/angular-training/fixed-assets/angular-third-party-module.js"></script>
 </body>
+<footer>
+  <h6 class="footer">Angular seed app: v<span app-version></span></h6>
+</footer>
 </html>

@@ -11,14 +11,14 @@ describe('my app', function() {
   });
 
 
-  describe('view1', function() {
+  describe('stockItems', function() {
 
     beforeEach(function() {
       browser.get('index.html#/stock-items');
     });
 
 
-    it('should render view1 when user navigates to /stock-items', function() {
+    it('should render stockItems when user navigates to /stock-items', function() {
       expect(element.all(by.css('[ng-view] p')).first().getText()).
         toMatch(/partial for view 1/);
     });
