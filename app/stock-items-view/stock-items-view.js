@@ -17,7 +17,7 @@ angular.module('stock.stockItems', ['ngRoute', 'angular.third.party.module'])
     angThirdParty.then(function(currentStockData){
       $scope.stockItems = currentStockData;
       //todo - remove
-      console.log('Items retreived from server: ' + $scope.stockItems);
+      console.log('Items retreived from server: ' + $scope.stockItems.length);
     });
 
     $scope.addItemToCart = function(item){

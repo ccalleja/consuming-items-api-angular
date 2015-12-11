@@ -14,14 +14,14 @@
         <p>Qty: {{stockItems[$index].qty}}</p>
       </div>
     </div>
-    <div class="col-sm-4" ng-if="stockItems[$index+1]" ng-click="addItemToCart(stockItems[$index])">
+    <div class="col-sm-4" ng-if="stockItems[$index+1]" ng-click="addItemToCart(stockItems[$index+1])">
       <div class="btn btn-info item-box">
         <h4>{{stockItems[$index+1].name}}</h4>
 
         <p>Qty: {{stockItems[$index+1].qty}}</p>
       </div>
     </div>
-    <div class="col-sm-4" ng-if="stockItems[$index+2]" ng-click="addItemToCart(stockItems[$index])">
+    <div class="col-sm-4" ng-if="stockItems[$index+2]" ng-click="addItemToCart(stockItems[$index+2])">
       <div class="btn btn-info item-box">
         <h4>{{stockItems[$index+2].name}}</h4>
 
@@ -33,5 +33,56 @@
   <div class="row-title">
     <h3>Receipt</h3>
   </div>
+
+  <table id="cart" class="table table-hover table-condensed">
+    <thead>
+    <tr>
+      <th style="width:10%">ID</th>
+      <th style="width:40%">Item</th>
+      <th style="width:10%">Price</th>
+      <th style="width:8%">Quantity</th>
+      <th style="width:22%" class="text-center">Subtotal</th>
+      <th style="width:10%"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td data-th="ID">12345</td>
+      <td data-th="Item">Item 1</td>
+      <td data-th="Price">$1.99</td>
+      <td data-th="Quantity">
+        <input type="number" class="form-control text-center" value="1">
+      </td>
+      <td data-th="Subtotal" class="text-center">1.99</td>
+      <td class="actions" data-th="">
+        <button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button>
+        <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>
+      </td>
+    </tr>
+    <tr>
+      <td data-th="ID">12345</td>
+      <td data-th="Item">Item 1</td>
+      <td data-th="Price">$1.99</td>
+      <td data-th="Quantity">
+        <input type="number" class="form-control text-center" value="1">
+      </td>
+      <td data-th="Subtotal" class="text-center">1.99</td>
+      <td class="actions" data-th="">
+        <button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button>
+        <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>
+      </td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr class="visible-xs">
+      <td class="text-center"><strong>Total 1.99</strong></td>
+    </tr>
+    <tr>
+      <td colspan="4" class="hidden-xs"></td>
+      <td class="hidden-xs text-center"><strong>Total $1.99</strong></td>
+      <td><a href="#" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
+    </tr>
+    </tfoot>
+  </table>
 
 </div>
