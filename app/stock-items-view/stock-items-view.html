@@ -8,21 +8,21 @@
   <!-- Render rows and columns for stock items track by name since id is not present in all items -->
   <div ng-repeat="stockItem in stockItems track by stockItem.name" ng-if="$index % 3 == 0" class="row">
     <div class="col-sm-4" ng-click="addItemToCart(stockItems[$index])">
-      <div class="btn btn-info item-box">
+      <div class="btn btn-info item-box" ng-class="{'disabled':stockItems[$index].cartQty === stockItems[$index].qty}">
         <h4>{{stockItems[$index].name}}</h4>
 
         <p>Qty: {{stockItems[$index].qty}}</p>
       </div>
     </div>
     <div class="col-sm-4" ng-if="stockItems[$index+1]" ng-click="addItemToCart(stockItems[$index+1])">
-      <div class="btn btn-info item-box">
+      <div class="btn btn-info item-box" ng-class="{'disabled':stockItems[$index+1].cartQty === stockItems[$index+1].qty}">
         <h4>{{stockItems[$index+1].name}}</h4>
 
         <p>Qty: {{stockItems[$index+1].qty}}</p>
       </div>
     </div>
     <div class="col-sm-4" ng-if="stockItems[$index+2]" ng-click="addItemToCart(stockItems[$index+2])">
-      <div class="btn btn-info item-box">
+      <div class="btn btn-info item-box" ng-class="{'disabled':stockItems[$index+2].cartQty === stockItems[$index+2].qty}">
         <h4>{{stockItems[$index+2].name}}</h4>
 
         <p>Qty: {{stockItems[$index+2].qty}}</p>
@@ -58,8 +58,13 @@
       </td>
       <td data-th="Subtotal" class="text-center">{{ cartItem.subtotal | currency: '€' }}</td>
       <td class="actions" data-th="">
-        <button class="btn btn-info btn-sm" ng-click="updateItemCartQuantity(cartItem, true)"><i class="fa fa-refresh"></i></button>
-        <button class="btn btn-danger btn-sm" ng-click="updateItemCartQuantity(cartItem, false)"><i class="fa fa-trash-o"></i></button>
+        <button class="btn btn-info btn-sm" ng-click="updateItemCartQuantity(cartItem, true)"
+                ng-class="{'disabled':cartItem.cartQty === cartItem.qty}">
+          <i class="fa fa-refresh"></i>
+        </button>
+        <button class="btn btn-danger btn-sm" ng-click="updateItemCartQuantity(cartItem, false)">
+          <i class="fa fa-trash-o"></i>
+        </button>
       </td>
     </tr>
 

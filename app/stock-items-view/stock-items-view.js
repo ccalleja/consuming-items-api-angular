@@ -72,7 +72,10 @@ angular.module('stock.stockItems', ['ngRoute', 'angular.third.party.module'])
     $scope.updateItemCartQuantity = function (item, increase) {
       if (item) {
         if (increase === true) {
-          item.cartQty += 1;
+          if(item.qty > item.cartQty) {
+            //only increase the cart quantity if there is enough left in stock
+            item.cartQty += 1;
+          }
         } else if(item.cartQty != 0){
           item.cartQty -= 1;
         }

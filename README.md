@@ -4,13 +4,18 @@
 * Developed and tested on chrome desktop mode
 * Basic design as required
 * Using angular-seed and bootstrap css for quick startup and setup
+* Loading stock items on page load
+* When item cart quantity reaches maximum available, you cant add more
+* 
 
 TODO
 Unit Tests coverage
 How to run
 How to run tests
 Directory structures
-Future Enhancements (directives for reusability)
+Future Enhancements 
+  modularised componenets for reusability
+  stock listing update
 
 
 
