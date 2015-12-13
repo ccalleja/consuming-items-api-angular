@@ -17,32 +17,33 @@ angular.module('stock.stockItems', ['ngRoute', 'angular.third.party.module'])
     $scope.total = 0;
     $scope.stockItems = {};
 
-    //get list of stok items
+    /**
+     * On controller load fetch the list of stock items
+     */
     angThirdParty.then(function (currentStockData) {
       $scope.stockItems = currentStockData;
-      //todo - remove
       $log.debug('Items retreived from server: ' + $scope.stockItems.length);
     });
 
     /**
-     *
-     * @param item
+     * Add the cartQty of a particular item so it can be reflected in the cart
      */
     $scope.addItemToCart = function (item) {
 
       if (!item.cartQty) {
         item.cartQty = 0;
       }
-      //item.cartQty += 1;
-      $scope.updateItemCartQuantity(item, true);
 
+      $scope.updateItemCartQuantity(item, true);
       $log.debug(item);
     }
 
     /**
+     * Calculate the subtotal of a particular item and set the result in item.subtotal
+     * This is done by multiplying price by cartQty only if both fields are defined
+     * Else subtotal is set to 0
      *
-     * @param item
-     * @returns {number}
+     * This field later on used to calculate the total and for view purposes
      */
     $scope.calculateSubtotal = function (item) {
       if(item && item.price && item.cartQty)
@@ -52,9 +53,8 @@ angular.module('stock.stockItems', ['ngRoute', 'angular.third.party.module'])
     }
 
     /**
-     *
-     * @param item
-     * @returns {number}
+     * Iterate trough the stockItems and add up the subtotal for each item
+     * The result is set in $scope.total formatted to 2 dp
      */
     $scope.calculateTotal = function () {
 
@@ -62,19 +62,21 @@ angular.module('stock.stockItems', ['ngRoute', 'angular.third.party.module'])
       for (var index in $scope.stockItems){
         var item = $scope.stockItems[index];
         if(item.cartQty > 0){
-          $scope.total += item.price * item.cartQty;
+          //$scope.total += item.price * item.cartQty;
+          $scope.total += item.subtotal;
         }
       }
       $scope.total = +($scope.total.toFixed(2));
     }
 
     /**
-     *
-     * @param item
-     * @param increase
+     * Try to update the item cartQty by 1. If item is updated also
+     * recalculate subtotal and total
+     * @param increase if set to true cartQty is increased by 1,
+     *        if set to false it is decreased by one
      */
     $scope.updateItemCartQuantity = function (item, increase) {
-      if (item) {
+      if (item && increase) {
         //if cart qty is undefined set it to 0
         item.cartQty = item.cartQty ? item.cartQty : 0;
 

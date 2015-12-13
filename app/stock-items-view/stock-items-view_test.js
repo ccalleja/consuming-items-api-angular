@@ -184,17 +184,19 @@ describe('stock.stockItems module', function () {
         name: "iPhone 6",
         price: 699.99,
         qty: 10,
-        cartQty:2
+        cartQty:2,
+        subtotal:1398
       },{
         id: 634555,
         name: "iPhone 6 Plus",
         price: 999.99,
         qty: 10,
-        cartQty: 3
+        cartQty: 3,
+        subtotal:2999.97
       }];
 
       scope.calculateTotal();
-      expect(scope.total).toEqual(4399.95);
+      expect(scope.total).toEqual(4397.97);
 
     }));
 
