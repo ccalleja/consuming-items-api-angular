@@ -8,7 +8,14 @@ module.exports = function(config){
       'app/bower_components/angular-route/angular-route.js',
       'app/bower_components/angular-mocks/angular-mocks.js',
       'app/components/**/*.js',
-      'app/view*/**/*.js'
+      //'http://dmifsud.github.io/angular-training/fixed-assets/angular-third-party-module.js',
+      'app/stock-items-view/**/*.js',
+      {
+        pattern: 'http://dmifsud.github.io/angular-training/fixed-assets/angular-third-party-module.js',
+        included: true,
+        served: false,
+        watched: false
+      }
     ],
 
     autoWatch : true,

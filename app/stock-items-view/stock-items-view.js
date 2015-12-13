@@ -45,7 +45,10 @@ angular.module('stock.stockItems', ['ngRoute', 'angular.third.party.module'])
      * @returns {number}
      */
     $scope.calculateSubtotal = function (item) {
-      item.subtotal = (item.price * item.cartQty);
+      if(item && item.price && item.cartQty)
+        item.subtotal = (item.price * item.cartQty);
+      else
+        item.subtotal = 0;
     }
 
     /**
@@ -62,6 +65,7 @@ angular.module('stock.stockItems', ['ngRoute', 'angular.third.party.module'])
           $scope.total += item.price * item.cartQty;
         }
       }
+      $scope.total = +($scope.total.toFixed(2));
     }
 
     /**
@@ -71,18 +75,26 @@ angular.module('stock.stockItems', ['ngRoute', 'angular.third.party.module'])
      */
     $scope.updateItemCartQuantity = function (item, increase) {
       if (item) {
+        //if cart qty is undefined set it to 0
+        item.cartQty = item.cartQty ? item.cartQty : 0;
+
+        var itemUpdated = false;
         if (increase === true) {
           if(item.qty > item.cartQty) {
             //only increase the cart quantity if there is enough left in stock
             item.cartQty += 1;
+            itemUpdated = true;
           }
         } else if(item.cartQty != 0){
           item.cartQty -= 1;
+          itemUpdated = true;
         }
 
-        //calculate these after each item update
-        $scope.calculateSubtotal(item);
-        $scope.calculateTotal();
+        if(itemUpdated) {
+          //if item was updated calculate these after each item update
+          $scope.calculateSubtotal(item);
+          $scope.calculateTotal();
+        }
       }
     }
   }]);
