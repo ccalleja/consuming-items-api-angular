@@ -12,7 +12,7 @@ angular.module('stock.stockItems', ['ngRoute', 'angular.third.party.module'])
 
   }])
 
-  .controller('StockItemsCtrl', ['$scope', 'angThirdParty', function ($scope, angThirdParty) {
+  .controller('StockItemsCtrl', ['$scope', 'angThirdParty', '$log', function ($scope, angThirdParty, $log) {
 
     $scope.total = 0;
     $scope.stockItems = {};
@@ -21,7 +21,7 @@ angular.module('stock.stockItems', ['ngRoute', 'angular.third.party.module'])
     angThirdParty.then(function (currentStockData) {
       $scope.stockItems = currentStockData;
       //todo - remove
-      console.log('Items retreived from server: ' + $scope.stockItems.length);
+      $log.debug('Items retreived from server: ' + $scope.stockItems.length);
     });
 
     /**
@@ -36,7 +36,7 @@ angular.module('stock.stockItems', ['ngRoute', 'angular.third.party.module'])
       //item.cartQty += 1;
       $scope.updateItemCartQuantity(item, true);
 
-      console.log(item);
+      $log.debug(item);
     }
 
     /**

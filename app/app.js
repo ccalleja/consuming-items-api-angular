@@ -7,6 +7,9 @@ var app = angular.module('myApp', [
   'myApp.version'
 ]);
 
-app.config(['$routeProvider', function ($routeProvider) {
+app.config(['$routeProvider', '$logProvider', function ($routeProvider, $logProvider) {
+  //for development purposes
+  $logProvider.debugEnabled(true);
+
   $routeProvider.otherwise({redirectTo: '/stock-items'});
 }]);
