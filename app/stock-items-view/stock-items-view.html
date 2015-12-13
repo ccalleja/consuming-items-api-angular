@@ -54,7 +54,7 @@
       <td data-th="Item">{{cartItem.name}}</td>
       <td data-th="Price">{{cartItem.price | currency:'€'}}</td>
       <td data-th="Quantity">
-        <input type="number" class="form-control text-center" ng-model="cartItem.cartQty">
+        <input type="number" class="form-control text-center" ng-model="cartItem.cartQty" ng-change="updateTotals(cartItem)" min="0" max="{{cartItem.qty}}">
       </td>
       <td data-th="Subtotal" class="text-center">{{ cartItem.subtotal | currency: '€' }}</td>
       <td class="actions" data-th="">

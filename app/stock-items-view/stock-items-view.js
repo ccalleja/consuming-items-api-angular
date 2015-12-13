@@ -62,7 +62,6 @@ angular.module('stock.stockItems', ['ngRoute', 'angular.third.party.module'])
       for (var index in $scope.stockItems){
         var item = $scope.stockItems[index];
         if(item.cartQty > 0){
-          //$scope.total += item.price * item.cartQty;
           $scope.total += item.subtotal;
         }
       }
@@ -76,7 +75,7 @@ angular.module('stock.stockItems', ['ngRoute', 'angular.third.party.module'])
      *        if set to false it is decreased by one
      */
     $scope.updateItemCartQuantity = function (item, increase) {
-      if (item && increase) {
+      if (item && increase !== undefined) {
         //if cart qty is undefined set it to 0
         item.cartQty = item.cartQty ? item.cartQty : 0;
 
@@ -98,5 +97,13 @@ angular.module('stock.stockItems', ['ngRoute', 'angular.third.party.module'])
           $scope.calculateTotal();
         }
       }
+    }
+
+    /**
+     * Used by quantity input to recalculate subtotal and total for a specific item change
+     */
+    $scope.updateTotals = function(item){
+      $scope.calculateSubtotal(item);
+      $scope.calculateTotal();
     }
   }]);

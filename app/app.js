@@ -1,10 +1,10 @@
 'use strict';
 
 // Declare app level module which depends on views, and components
-var app = angular.module('myApp', [
+var app = angular.module('stockApp', [
   'ngRoute',
   'stock.stockItems',
-  'myApp.version'
+  'stockApp.version'
 ]);
 
 app.config(['$routeProvider', '$logProvider', function ($routeProvider, $logProvider) {
