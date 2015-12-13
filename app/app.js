@@ -4,7 +4,6 @@
 var app = angular.module('myApp', [
   'ngRoute',
   'stock.stockItems',
-  'myApp.view2',
   'myApp.version'
 ]);
 

@@ -9,7 +9,8 @@ TODO
 Unit Tests coverage
 How to run
 How to run tests
-
+Directory structures
+Future Enhancements (directives for reusability)
 
 
 
