@@ -54,10 +54,9 @@
       <td data-th="Item">{{cartItem.name}}</td>
       <td data-th="Price">{{cartItem.price | currency:'€'}}</td>
       <td data-th="Quantity">
-        <!-- todo : format to euro -->
         <input type="number" class="form-control text-center" ng-model="cartItem.cartQty">
       </td>
-      <td data-th="Subtotal" class="text-center">{{ calculateSubtotal(cartItem) | currency: '€' }}</td>
+      <td data-th="Subtotal" class="text-center">{{ cartItem.subtotal | currency: '€' }}</td>
       <td class="actions" data-th="">
         <button class="btn btn-info btn-sm" ng-click="updateItemCartQuantity(cartItem, true)"><i class="fa fa-refresh"></i></button>
         <button class="btn btn-danger btn-sm" ng-click="updateItemCartQuantity(cartItem, false)"><i class="fa fa-trash-o"></i></button>
@@ -65,10 +64,10 @@
     </tr>
 
     </tbody>
-    <tfoot>
+    <tfoot ng-show="total > 0">
     <tr>
       <td colspan="4" class="hidden-xs"></td>
-      <td class="hidden-xs text-center"><strong>Total {{calculateTotal() | currency : '€'}}</strong></td>
+      <td class="hidden-xs text-center"><strong>Total {{total | currency : '€'}}</strong></td>
       <td><a href="#" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
     </tr>
     </tfoot>
