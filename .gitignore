@@ -6,3 +6,4 @@ tmp
 .DS_Store
 .idea
 consuming-items-api-angular.iml
+npm-debug.log

@@ -6,7 +6,7 @@
 * Using angular-seed and bootstrap css for quick startup and setup
 * Loading stock items on page load
 * When item cart quantity reaches maximum available, you cant add more
-* 
+* Install protractor globally and java version 7 or above needs to be installed
 
 TODO
 Unit Tests coverage
@@ -16,6 +16,9 @@ Directory structures
 Future Enhancements 
   modularised componenets for reusability
   stock listing update
+  
+Known Bugs
+  manual entry in number fields
 
 
 
