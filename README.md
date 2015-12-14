@@ -79,13 +79,12 @@ e2e-tests/            --> end-to-end tests
 * manual entry in number fields: if you delete the qty number to write a new one, the row disappears
 
 
-
 #### Additional Information
 
 For more information on AngularJS please check out http://angularjs.org/
 
-[protractor]: https://github.com/angular/protractor
-[karma]: http://karma-runner.github.io
-[angular-seed]: https://github.com/angular/angular-seed
-[bootstrap]: https://github.com/twbs
+[protractor](https://github.com/angular/protractor)
+[karma](http://karma-runner.github.io)
+[angular-seed](https://github.com/angular/angular-seed)
+[bootstrap](https://github.com/twbs)
 
